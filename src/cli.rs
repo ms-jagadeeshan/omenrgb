@@ -1,5 +1,5 @@
-use clap::{Parser, Subcommand};
 use clap::builder::PossibleValuesParser;
+use clap::{Parser, Subcommand};
 
 use crate::constants::MODES;
 
@@ -27,28 +27,30 @@ pub enum Commands {
         )]
         value: String,
     },
-    Brightness {
+    All {
         #[arg(
-            help="Set brightness (0-100) or +/- delta",
-            value_name="VALUE"
+            help = "Color (HEX, #HEX, shorthand, or named color)",
+            value_name = "COLOR"
         )]
+        color: String,
+    },
+    Brightness {
+        #[arg(help = "Set brightness (0-100) or +/- delta", value_name = "VALUE")]
         value: String,
     },
-  Mode {
+    Animation {
         #[arg(
             help = "Animation mode",
             value_parser = PossibleValuesParser::new(MODES),
             value_name = "MODE"
         )]
         mode: String,
-    },
-
-    Speed {
-        #[arg(
-            help = "Animation speed (1-10) or +/- delta",
-            value_name = "VALUE"
+        #[arg(help = "Animation speed (1-10) or +/- delta",
+            value_name = "VALUE",
+            default_value = "0",
         )]
-        value: String,
+        speed: String,
+
     },
     Status {
         #[arg(long)]
@@ -66,7 +68,6 @@ pub enum Commands {
         #[arg(help = "End color")]
         to: String,
     },
-
     Random {
         #[arg(long, help = "Randomize zone colors")]
         zones: bool,
@@ -78,7 +79,7 @@ pub enum Commands {
 
 #[derive(Subcommand)]
 pub enum PresetCmd {
-    Save{name: String},
-    Load{name: String},
+    Save { name: String },
+    Load { name: String },
     List,
 }

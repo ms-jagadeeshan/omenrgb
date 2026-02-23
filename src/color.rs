@@ -36,7 +36,7 @@ pub fn normalize_color(input:&str)->Result<String>{
     }
 
     if s.len()==3{
-        s=s.chars().map(|c| format!("{c},{c}")).collect();
+        s=s.chars().map(|c| format!("{c}{c}")).collect();
     }
 
     if s.len()!=6 || !s.chars().all(|c| c.is_ascii_hexdigit()){
