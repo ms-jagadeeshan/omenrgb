@@ -1,4 +1,4 @@
-pub const MODES: &[&str; 10] =&[
+pub const MODES: &[&str; 10] = &[
     "static",
     "breathing",
     "rainbow",

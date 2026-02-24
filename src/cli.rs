@@ -45,12 +45,12 @@ pub enum Commands {
             value_name = "MODE"
         )]
         mode: String,
-        #[arg(help = "Animation speed (1-10) or +/- delta",
+        #[arg(
+            help = "Animation speed (1-10) or +/- delta",
             value_name = "VALUE",
-            default_value = "0",
+            default_value = "0"
         )]
         speed: String,
-
     },
     Status {
         #[arg(long)]

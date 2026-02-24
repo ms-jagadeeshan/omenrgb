@@ -1,6 +1,6 @@
+use crate::{color, driver};
 use anyhow::Result;
 use rand::Rng;
-use crate::{driver, color};
 
 pub fn parse_percentage(input: String, current: u8) -> Result<u8> {
     if input.starts_with('+') || input.starts_with('-') {
@@ -47,8 +47,16 @@ pub fn apply_random(zones: bool, mode: bool) -> Result<()> {
 
     if mode {
         let modes = [
-            "static","breathing","rainbow","wave","pulse",
-            "chase","sparkle","candle","aurora","disco"
+            "static",
+            "breathing",
+            "rainbow",
+            "wave",
+            "pulse",
+            "chase",
+            "sparkle",
+            "candle",
+            "aurora",
+            "disco",
         ];
         driver::set_mode(modes[rng.gen_range(0..modes.len())])?;
     }
@@ -56,11 +64,11 @@ pub fn apply_random(zones: bool, mode: bool) -> Result<()> {
     Ok(())
 }
 
-fn hex_to_rgb(hex: &str) -> Result<(u8,u8,u8)> {
+fn hex_to_rgb(hex: &str) -> Result<(u8, u8, u8)> {
     Ok((
-        u8::from_str_radix(&hex[0..2],16)?,
-        u8::from_str_radix(&hex[2..4],16)?,
-        u8::from_str_radix(&hex[4..6],16)?,
+        u8::from_str_radix(&hex[0..2], 16)?,
+        u8::from_str_radix(&hex[2..4], 16)?,
+        u8::from_str_radix(&hex[4..6], 16)?,
     ))
 }
 

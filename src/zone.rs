@@ -1,4 +1,4 @@
-use anyhow::{anyhow, Result};
+use anyhow::{Result, anyhow};
 
 pub fn parse_zone(input: &str) -> Result<u8> {
     let cleaned = input.to_lowercase().replace("zone", "");

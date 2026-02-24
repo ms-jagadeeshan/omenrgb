@@ -1,7 +1,6 @@
-use anyhow::{anyhow, Result};
+use anyhow::{Result, anyhow};
 
 use crate::constants::MODES;
-
 
 pub fn validate_mode(input: &str) -> Result<()> {
     if MODES.contains(&input) {

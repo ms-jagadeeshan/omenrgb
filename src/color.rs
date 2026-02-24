@@ -1,10 +1,9 @@
-use anyhow::{anyhow,Result};
+use anyhow::{Result, anyhow};
 
-pub fn normalize_color(input:&str)->Result<String>{
-
+pub fn normalize_color(input: &str) -> Result<String> {
     let mut s = input.trim().to_lowercase();
 
-    let named= match s.as_str(){
+    let named = match s.as_str() {
         "red" => "ff0000",
         "green" => "00ff00",
         "blue" => "0000ff",
@@ -26,23 +25,21 @@ pub fn normalize_color(input:&str)->Result<String>{
         "silver" => "c0c0c0",
         "brown" => "a52a2a",
         "lavender" => "e6e6fa",
-        _=> &s,
+        _ => &s,
     };
 
-    s=named.to_string();
+    s = named.to_string();
 
-    if s.starts_with('#'){
-        s=s[1..].to_string();
+    if s.starts_with('#') {
+        s = s[1..].to_string();
     }
 
-    if s.len()==3{
-        s=s.chars().map(|c| format!("{c}{c}")).collect();
+    if s.len() == 3 {
+        s = s.chars().map(|c| format!("{c}{c}")).collect();
     }
 
-    if s.len()!=6 || !s.chars().all(|c| c.is_ascii_hexdigit()){
+    if s.len() != 6 || !s.chars().all(|c| c.is_ascii_hexdigit()) {
         return Err(anyhow!("Invalid color format"));
     }
     Ok(s.to_uppercase())
 }
-
-

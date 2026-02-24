@@ -1,5 +1,5 @@
-use crate::{cli::PresetCmd, driver};
 use crate::color;
+use crate::{cli::PresetCmd, driver};
 use anyhow::Result;
 use dirs::config_dir;
 use serde::{Deserialize, Serialize};
@@ -66,6 +66,4 @@ fn list() -> Result<()> {
         println!("{}", entry?.file_name().to_string_lossy());
     }
     Ok(())
-
- 
 }
