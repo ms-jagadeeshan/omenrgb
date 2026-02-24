@@ -4,7 +4,7 @@ use clap::{Parser, Subcommand};
 use crate::constants::MODES;
 
 #[derive(Parser)]
-#[command(name = "kbdctl")]
+#[command(name = "omenrgb")]
 #[command(version)]
 #[command(about = "Control HP Omen 4 zone RGB keyboard")]
 pub struct Cli {

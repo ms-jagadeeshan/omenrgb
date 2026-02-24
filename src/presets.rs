@@ -16,7 +16,7 @@ struct Preset {
 fn preset_path(name: &str) -> std::path::PathBuf {
     config_dir()
         .unwrap()
-        .join("kbdctl")
+        .join("omenrgb")
         .join(format!("{name}.json"))
 }
 
@@ -58,7 +58,7 @@ fn load(name: &str) -> Result<()> {
 }
 
 fn list() -> Result<()> {
-    let path = config_dir().unwrap().join("kbdctl");
+    let path = config_dir().unwrap().join("omenrgb");
     if !path.exists() {
         return Ok(());
     }
