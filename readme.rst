@@ -45,6 +45,16 @@ You should see entries like::
     zone02
     zone03
 
+Rust
+----
+
+This project is written in Rust and requires the Rust toolchain to be installed.
+
+Install Rust::
+
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    source $HOME/.cargo/env
+
 Installation
 ===========
 
@@ -52,9 +62,10 @@ Build from source::
 
     git clone https://github.com/ms-jagadeeshan/omenrgb
     cd omenrgb
-    make install
-    # or
-    # sudo make install
+    # For user-local installation
+    make install-local
+    # For system-wide installation
+    sudo make install
 
 Basic usage
 ===========
@@ -171,8 +182,8 @@ Both::
     omenrgb random --zones --mode
 
 
-Others
-======
+Other Ideas 
+===========
 
 Focus mode::
 
@@ -189,11 +200,11 @@ Battery level indicator::
     BAT=$(cat /sys/class/power_supply/BAT0/capacity)
 
     if [ $BAT -lt 20 ]; then
-      omenrgb set all red
+      omenrgb all red
     elif [ $BAT -lt 50 ]; then
-      omenrgb set all yellow
+      omenrgb all yellow
     else
-      omenrgb set all green
+      omenrgb all green
     fi
 
 
