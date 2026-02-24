@@ -45,20 +45,19 @@ You should see entries like::
     zone02
     zone03
 
-Rust
-----
 
-This project is written in Rust and requires the Rust toolchain to be installed.
+Installation
+===========
+
+Build from source
+------------------
 
 Install Rust::
 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     source $HOME/.cargo/env
 
-Installation
-===========
-
-Build from source::
+Compile and install::
 
     git clone https://github.com/ms-jagadeeshan/omenrgb
     cd omenrgb
@@ -66,6 +65,12 @@ Build from source::
     make install-local
     # For system-wide installation
     sudo make install
+
+Install binary
+--------------
+
+Download the latest binary from the releases page:
+https://github.com/ms-jagadeeshan/omenrgb/releases
 
 Basic usage
 ===========
