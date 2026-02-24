@@ -1,6 +1,6 @@
 [package]
 name = "omenrgb"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2024"
 description = "Control HP Omen 4 zone RGB keyboard"
 repository = "https://github.com/ms-jagadeeshan/omenrgb"
